@@ -323,27 +323,25 @@ export const INCOME_CATEGORIES = {
   ]
 };
 
-// Combined categories for easy access
 export const ALL_CATEGORIES = {
   income: INCOME_CATEGORIES,
   expense: EXPENSE_CATEGORIES
 };
 
-// Helper function to get all categories as a flat array
 export const getAllCategories = () => {
   return Object.keys({ ...EXPENSE_CATEGORIES, ...INCOME_CATEGORIES });
 };
 
-// Helper function to get subcategories for a specific category
 export const getSubCategories = (category, type = 'expense') => {
   const categories = type === 'income' ? INCOME_CATEGORIES : EXPENSE_CATEGORIES;
   return categories[category] || [];
 };
 
-// Helper function to validate if a category/subcategory combination is valid
+
 export const isValidCategorySubCategory = (category, subCategory, type = 'expense') => {
   const categories = type === 'income' ? INCOME_CATEGORIES : EXPENSE_CATEGORIES;
   return categories[category] && categories[category].includes(subCategory);
 };
-
+// const foodSubs = getSubCategories('Food & Dining', 'expense');
+// const isValid = isValidCategorySubCategory('Transportation', 'Gas & Fuel', 'expense');
 export default ALL_CATEGORIES;
