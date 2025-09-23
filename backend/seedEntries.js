@@ -64,7 +64,6 @@ const seedEntries = async () => {
     // Display summary
     console.log('\nSeeding Summary:');
     console.log(`User 1 (${userId1}): 10 entries`);
-    console.log(`User 2 (${userId2}): 10 entries`);
     console.log('Total: 20 entries');
 
     // Display sample of inserted data
