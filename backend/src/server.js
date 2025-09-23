@@ -1,9 +1,11 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+
 import connectDB from './utils/db.js';
 import aiRoutes from './Routes/spenditbotRoutes.js';
 import entryRoutes from './Routes/entryRoutes.js';
+import authRoutes from './Routes/authRoutes.js';
 
 dotenv.config("./");
 const app = express();
@@ -11,6 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use("/api/auth", authRoutes)
 app.use("/api/spenditbot", aiRoutes);
 app.use("/api/entry", entryRoutes)
 
