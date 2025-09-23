@@ -1,12 +1,12 @@
 import User from "../models/User.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import authmiddleware from '../middleware/auth_middleware.js';
+import authmiddleware from '../midddleware/authmiddleware.js';
 
 
 export async function register_User(req, res){
     try {
-        const {name, email, password} = req.body
+        const {username, email, password} = req.body
         
         const existing = await User.findOne({ email });
         if (existing) return res.status(400).json({ msg: "User already exists" });
@@ -15,7 +15,7 @@ export async function register_User(req, res){
         const salt = await bcrypt.genSalt(10);
         const passwordHash = await bcrypt.hash(password, salt);
 
-        const newUser = new User({name, email, passwordHash})
+        const newUser = new User({username, email, passwordHash})
         await newUser.save()
         res.status(201).json({"message" : "User Registered", User : newUser})
     } catch (error) {
