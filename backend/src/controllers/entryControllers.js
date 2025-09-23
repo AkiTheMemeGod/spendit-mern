@@ -2,7 +2,7 @@ import Entry from "../models/Entry.js";
 
 export async function getAllEntries(req, res){
     try {
-        const userId = req.body.userId;
+    const userId = req.query.userId;
         const entries = await Entry.find({userId}, {_id : 0, __v : 0, createdAt: 0});
         res.status(200).json({message : "Entries Fetched", entries : entries});
     } catch (error) {
