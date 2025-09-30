@@ -27,7 +27,7 @@ const CategoryFilter = ({
   return (
     <div className="flex gap-2 items-center mb-4">
       <select
-        className="px-2 py-1 rounded bg-white/10 text-white border border-white/20"
+        className="px-2 py-1 rounded bg-[#181820] text-white border border-white/20"
         value={category}
         onChange={e => setCategory(e.target.value)}
       >
@@ -37,7 +37,7 @@ const CategoryFilter = ({
         ))}
       </select>
       <select
-        className="px-2 py-1 rounded bg-white/10 text-white border border-white/20"
+        className="px-2 py-1 rounded bg-[#181820] text-white border border-white/20"
         value={subCategory}
         onChange={e => setSubCategory(e.target.value)}
         disabled={!category}
