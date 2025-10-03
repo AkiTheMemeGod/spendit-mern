@@ -1,5 +1,5 @@
 import express from 'express';
-import { chatbot, summarize } from '../aillm/spenditbot.js';
+import { chatbot, summarize } from '../Bot/spenditbot.js';
 
 const router = express.Router();
 
