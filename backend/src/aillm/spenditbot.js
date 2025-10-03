@@ -33,7 +33,7 @@ export async function summarize(req, res) {
     const prompt = req.body.prompt;
     const task_help = req.body.task;
     const payload = req.body.payload;
-    const systemPrompt = { role: 'system', content: `Your Name is SpenditBOT you help manage and summarize expenses and incomes. ${task_help} ${payload}` };
+    const systemPrompt = { role: 'system', content: `Your Name is SpenditBOT you help manage and summarize expenses and incomes. ${task_help} this is my expense history ${payload}` };
     const userMessage = { role: 'user', content: prompt };
     const response = await ollama.chat({
         model: process.env.MODEL,
